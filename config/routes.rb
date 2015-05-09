@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   resources :memes do
-    post "memes/:id/recommendation" => "meme_recommendations#create", on: :member, as: "recommendation"
-    delete "memes/:id/recommendation" => "meme_recommendations#destroy", on: :member
+    resource :recommendation, only: [:create, :destroy], defaults: { klass: Meme }
   end
 
   resources :articles do
-    post "articles/:id/recommendation" => "article_recommendations#create", on: :member, as: "recommendation"
-    delete "articles/:id/recommendation" => "article_recommendations#destroy", on: :member
+    resource :recommendation, only: [:create, :destroy], defaults: { klass: Article }
   end
 
   root "home#index"
