@@ -1,13 +1,9 @@
-class MemeRecommendationsController < ApplicationController
+class MemeRecommendationsController < RecommendableController
   def create
-    @meme = Meme.find(params[:id])
-    @meme.increment!(:recommended)
-    redirect_to @meme
+    redirect_to vote_up(Meme, params[:id])
   end
 
   def destroy
-    @meme = Meme.find(params[:id])
-    @meme.increment!(:recommended, -1)
-    redirect_to @meme
+    redirect_to vote_down(Meme, params[:id])
   end
 end

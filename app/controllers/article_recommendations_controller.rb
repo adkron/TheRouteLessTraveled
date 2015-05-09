@@ -1,13 +1,9 @@
-class ArticleRecommendationsController < ApplicationController
+class ArticleRecommendationsController < RecommendableController
   def create
-    @article = Article.find(params[:id])
-    @article.increment!(:recommended)
-    redirect_to @article
+    redirect_to vote_up(Article, params[:id])
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.increment!(:recommended, -1)
-    redirect_to @article
+    redirect_to vote_down(Article, params[:id])
   end
 end
