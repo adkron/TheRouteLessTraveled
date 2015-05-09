@@ -1,12 +1,6 @@
 class MemesController < ApplicationController
   before_action :set_meme, only: [:show, :edit, :update, :destroy]
 
-  def recommend
-    @meme = Meme.find(params[:id])
-    @meme.increment!(:recommended)
-    redirect_to @meme
-  end
-
   # GET /memes
   # GET /memes.json
   def index

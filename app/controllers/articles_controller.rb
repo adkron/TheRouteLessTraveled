@@ -1,12 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
-  def recommend
-    @article = Article.find(params[:id])
-    @article.increment!(:recommended)
-    redirect_to @article
-  end
-
   # GET /articles
   # GET /articles.json
   def index
