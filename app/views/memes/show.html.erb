@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<img src="<%= @meme.uri %>" >
+</p>
+
+<p>
+  <strong>Recommended:</strong>
+  <%= @meme.recommended %>
+  <%= button_to 'Recommend', recommend_meme_path(@meme)  %>
+</p>
+
+<%= link_to 'Edit', edit_meme_path(@meme) %> |
+<%= link_to 'Back', memes_path %>
