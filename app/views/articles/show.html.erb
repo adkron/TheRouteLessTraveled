@@ -14,6 +14,7 @@
   <strong>Recommended:</strong>
   <%= @article.recommended %>
   <%= button_to 'Recommend', recommendation_article_path(@article) %>
+  <%= button_to 'Unrecommend', recommendation_article_path(@article), method: :delete %>
 </p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |

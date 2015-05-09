@@ -8,6 +8,7 @@
   <strong>Recommended:</strong>
   <%= @meme.recommended %>
   <%= button_to 'Recommend', recommendation_meme_path(@meme)  %>
+  <%= button_to 'Unrecommend', recommendation_meme_path(@meme), method: :delete  %>
 </p>
 
 <%= link_to 'Edit', edit_meme_path(@meme) %> |
