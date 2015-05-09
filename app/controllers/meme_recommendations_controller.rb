@@ -1,9 +1,10 @@
-class MemeRecommendationsController < RecommendableController
-  def create
-    redirect_to vote_up(Meme, params[:id])
-  end
+require "recommendable"
 
-  def destroy
-    redirect_to vote_down(Meme, params[:id])
+class MemeRecommendationsController < ApplicationController
+  include Recommendable
+  private
+
+  def klass
+    Meme
   end
 end

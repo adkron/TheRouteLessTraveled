@@ -1,9 +1,10 @@
-class ArticleRecommendationsController < RecommendableController
-  def create
-    redirect_to vote_up(Article, params[:id])
-  end
+require "recommendable"
 
-  def destroy
-    redirect_to vote_down(Article, params[:id])
+class ArticleRecommendationsController < ApplicationController
+  include Recommendable
+  private
+
+  def klass
+    Article
   end
 end
