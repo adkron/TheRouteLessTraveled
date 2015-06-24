@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :memes
-  put "memes/:id/recommend", to: "memes#recommend", as: "meme_recommend"
-  delete "memes/:id/unrecommend", to: "memes#unrecommend", as: "meme_unrecommend"
+  resources :memes do
+    resource :recommendation, only: [:create, :destroy], controller: :meme_recommendations
+  end
 
-  resources :articles
-  put "articles/:id/recommend", to: "articles#recommend", as: "article_recommend"
-  delete "articles/:id/unrecommend", to: "articles#unrecommend", as: "article_unrecommend"
+  resources :articles do
+    resource :recommendation, only: [:create, :destroy], controller: :article_recommendations
+  end
 
   root "home#index"
 end

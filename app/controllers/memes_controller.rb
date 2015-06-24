@@ -1,5 +1,5 @@
 class MemesController < ApplicationController
-  before_action :set_meme, only: [:show, :edit, :update, :destroy, :recommend, :unrecommend]
+  before_action :set_meme, only: [:show, :edit, :update, :destroy]
 
   # GET /memes
   # GET /memes.json
@@ -35,16 +35,6 @@ class MemesController < ApplicationController
         format.json { render json: @meme.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def recommend
-    @meme.increment!(:recommended)
-    redirect_to @meme, notice: 'Thanks for the recommendation.'
-  end
-
-  def unrecommend
-    @meme.increment!(:recommended, -1)
-    redirect_to @meme, notice: 'Sorry you did not enjoy that one.'
   end
 
   def update

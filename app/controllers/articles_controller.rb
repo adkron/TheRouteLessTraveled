@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy, :recommend, :unrecommend]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles
   # GET /articles.json
@@ -35,16 +35,6 @@ class ArticlesController < ApplicationController
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def recommend
-    @article.increment!(:recommended)
-    redirect_to @article, notice: 'Thanks for the recommendation.'
-  end
-
-  def unrecommend
-    @article.increment!(:recommended, -1)
-    redirect_to @article, notice: 'Sorry you did not enjoy that one.'
   end
 
   def update

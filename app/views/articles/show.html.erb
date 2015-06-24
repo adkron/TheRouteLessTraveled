@@ -13,8 +13,8 @@
 <p>
   <strong>Recommended:</strong>
   <%= @article.recommended %>
-  <%= button_to 'Recommend', article_recommend_path(@article), method: :put  %>
-  <%= button_to 'Unrecommend', article_unrecommend_path(@article), method: :delete %>
+  <%= button_to 'Recommend', article_recommendation_path(@article), method: :create  %>
+  <%= button_to 'Unrecommend', article_recommendation_path(@article), method: :delete %>
 </p>
 
 
