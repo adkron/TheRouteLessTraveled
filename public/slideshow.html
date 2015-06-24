@@ -8,16 +8,37 @@
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
       @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
-      body { font-family: 'Droid Serif'; }
+      body { font-family: 'Georgia'; }
       h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
+        font-family: 'Georgia';
         font-weight: normal;
       }
+
+      li {
+        font-size: 30px;
+      }
+
+      .remark-slides-area { background-color: #2E8B57; }
+
       img {
-        height: 45%;
-        width: 45%;
+        max-height: 75%;
+        max-width: 75%;
+      }
+
+      .center{
         text-align: center;
       }
+
+      .fullscreen {
+        width: 100%;
+      }
+
+      .small {
+        width: 55%;
+      }
+
+      .red { color: red; }
+
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
     </style>
   </head>
@@ -26,7 +47,17 @@
 
 class: center, middle
 
-# The Route Less Travelled
+# The Route Less Traveled
+
+---
+
+class: center, middle
+
+### THIS SLIDE INTENTIONALLY LEFT BLANK
+
+???
+
+* Something the publisher asked me to do
 
 ---
 
@@ -40,22 +71,26 @@ class: center, middle
 
 # Family
 
-.center[![Family](/assets/whole_family.jpg)]
+.small.center[![Family](images/whole_family.jpg)]
 ---
 
 #The Doctor
 
-.center[![Dr Who](/assets/dr_who.jpg)]
+.small.center[![Dr Who](images/dr_who.jpg)]
 
 ---
 
 #Always The Same
 
-.center[![Same Pose](/assets/sideways.jpg)]
+.small.center[![Same Pose](images/sideways.jpg)]
 
 ---
 
-# Binary Noggin
+.fullscreen.center[![This Agile Life](http://www.thisagilelife.com/wp-content/uploads/2012/08/copy-thisagilelife.jpg)]
+
+---
+
+.fullscreen.center[![Binary Noggin](images/BinaryNoggin5.png)]
 
 ---
 
@@ -65,7 +100,7 @@ class: center, middle
 
 ---
 
-Evolution
+.fullscreen.center[![Evolution](images/Man_is_But_a_Worm.jpg)]
 
 ???
 
@@ -75,25 +110,89 @@ Evolution
 
 ---
 
-# Evolution of the Eye pic
+.fullscreen.center[![Evolution if eye](images/Stages_in_the_evolution_of_the_eye.png)]
 
 ---
 
-# Initial Requirements
+# Requirements
 
-Given an great article
+Given a great article
+
 When I recommend it
+
+The recommended count increases by one
+
+---
+# Requirements
+
+Given a bad article
+
+When I unrecommend it
+
+The recommended count decreases by one
+
+---
+
+# Requirements
+
+Given a great meme
+
+When I recommend it
+
 The recommended count increases by one
 
 ---
 
-Given a great Meme
-When I recommend it
-The recommended count increases by one
+# Requirements
+
+Given a bad meme
+
+When I unrecommend it
+
+The recommended count decreases by one
 
 ---
 
-Eye Spots
+# Requirements
+
+Given a .red[great article]
+
+When I .red[recommend] it
+
+The recommended count .red[increases] by one
+
+---
+# Requirements
+
+Given a .red[bad article]
+
+When I .red[unrecommend] it
+
+The recommended count .red[decreases] by one
+
+---
+
+# Requirements
+
+Given a .red[great meme]
+
+When I .red[recommend] it
+
+The recommended count .red[increases] by one
+
+---
+
+# Requirements
+
+Given a .red[bad meme]
+
+When I .red[unrecommend] it
+
+The recommended count .red[decreases] by one
+
+---
+
+# Eye Spots
 
 ???
 
@@ -110,20 +209,20 @@ Eye Spots
 
 ## Approaches
 
-**1. overloaded update method**
-
-2. non-restful copypasta
-3. restful copypasta
-4. inheritance
-5. includes
-6. dependency injection
+* ** overloaded update method**
+* copypasta
+* restful copypasta
+* inheritance
+* including modules
+* dependency injection
 
 ---
 
-* "cup" eyespots or pit eyes
+.fullscreen.center[![Pit Eyes](images/Land_Planarian.jpg)]
 
 ???
 
+* "cup" eyespots or pit eyes
 * curved like a cup or dip in the surface
 * light from more than one direction can slightly distinguish light
 direction
@@ -135,21 +234,20 @@ Wikimedia Commons
 
 ## Approaches
 
-1. overloaded update method
-
-**2. non-restful copypasta**
-
-3. restful copypasta
-4. inheritance
-5. includes
-6. dependency injection
+* overloaded update method
+* ** copypasta**
+* restful copypasta
+* inheritance
+* including modules
+* dependency injection
 
 ---
 
-* Deep Cup eye
+.fullscreen.center[![Deep Cup Eyes](images/Nautilus-JB-01.jpg)]
 
 ???
 
+* Deep Cup eye
 * smaller opening
 * true imaging
 * fine directional sensing
@@ -164,19 +262,20 @@ Wikimedia Commons
 
 ## Approaches
 
-1. overloaded update method
-2. non-restful copypasta
-
-**3. restful copypasta**
-
-4. inheritance
-5. includes
-6. dependency injection
+* overloaded update method
+* copypasta
+* ** restful copypasta**
+* inheritance
+* including modules
+* dependency injection
 
 ---
 
-* Cornea
+.fullscreen.center[![Cornea](images/Velvet_worm.png)]
 
+???
+
+* Cornea
 ** Transparent cells cover the eye and protect it from bacteria
 ** fills with transparent liquid
 ** color filtering
@@ -190,21 +289,30 @@ kimmel (Velvet_worm.jpg) [CC BY 2.0
 
 ## Approaches
 
-1. overloaded update method
-2. non-restful copypasta
-3. restful copypasta
-
-**4. inheritance**
-
-5. includes
-6. dependency injection
-
----
-
-* Cephalopod (Octopus)
+* overloaded update method
+* copypasta
+* restful copypasta
+* ** inheritance**
+* including modules
+* dependency injection
 
 ???
 
+* Template pattern - where the parent calls the child
+* NotImplementedError
+* Inheritance Problems
+
+** The highlander problem - There can be only one
+** A controller that isn't useful by itself. Must have a child
+** That's another talk
+
+---
+
+.fullscreen.center[![Cephalopod](images/Octopus.JPG)]
+
+???
+
+* Cephalopod (Octopus)
 * Nerves on back of rods and cones
 * verabrates have nerves on top of rods and cones - creating a blind
 spot
@@ -216,29 +324,31 @@ Commons
 
 ## Approaches
 
-1. overloaded update method
-2. non-restful copypasta
-3. restful copypasta
-4. inheritance
-
-**5. includes**
-
-6. dependency injection
+* overloaded update method
+* copypasta
+* restful copypasta
+* inheritance
+* ** including modules**
+* dependency injection
 
 ---
 
 ## Approaches
 
-1. overloaded update method
-2. non-restful copypasta
-3. restful copypasta
-4. inheritance
+* overloaded update method
+* copypasta
+* restful copypasta
+* inheritance
+* ** ~~including modules~~ multiple inheritance**
+* dependency injection
 
-**5. ~~includes~~ multiple inheritance**
+???
 
-6. dependency injection
+* Diamond problem - method choice between multiple inheritance
 
 ---
+
+.fullscreen.center[![Mantis Shrimp](images/Curious_mantis_shrimp_from_Gilli_Banta_reef.JPG)]
 
 ???
 
@@ -253,13 +363,12 @@ Commons
 
 ## Approaches
 
-1. overloaded update method
-2. non-restful copypasta
-3. restful copypasta
-4. inheritance
-5. ~~includes~~ multiple inheritance
-
-**6. dependency injection**
+* overloaded update method
+* copypasta
+* restful copypasta
+* inheritance
+* ~~including modules~~ multiple inheritance
+* ** dependency injection**
 
 ---
 
@@ -276,10 +385,11 @@ What?
 
 ---
 
-* Jellyfish (some) - cool information
+.fullscreen.center[![Moon Jelly](images/Moon_jellyfish_at_Gota_Sagher.JPG)]
 
 ???
 
+* Jellyfish (some) - cool information
 * elaborate eyes but no brain
 * eyes wired directly to muscles
 * Moon Jelleyfish - By Alexander Vasenin (Own work) [CC BY-SA 3.0
@@ -289,21 +399,22 @@ What?
 
 # Example Uses
 
-1. sorting
-2. reporting concerns
-3. approve/reject
-4. recommend
-5. subscribe/unsubscribe
-6. comment
-7. publish/unpublish
-8. attach file/image
-9. Whatever crazy thing you can think up
+* sorting
+* reporting concerns
+* approve/reject
+* recommend
+* subscribe/unsubscribe
+* comment
+* publish/unpublish
+* attach file/image
+* Whatever crazy thing you can think up
 
 ---
 
-#Jump the Shark
-
-.center[![Jump the Shark](/assets/shark.png)]
+### Twitter: ** @adkron **
+### Github:  ** [adkron/TheRouteLessTraveled](https://github.com/adkron/TheRouteLessTraveled) **
+### Podcast: ** [This Agile Life](http://www.thisagilelife.com/) **
+### Blog: ** [Dirty Information](http://dirtyinformation.com/) **
 
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
