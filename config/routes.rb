@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  resources :memes do
-    post "recommend", on: :member
-  end
+  resources :memes
 
-  resources :articles do
-    post "recommend", on: :member
-  end
+  resources :articles
 
   root "home#index"
 end
