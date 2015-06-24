@@ -1,4 +1,4 @@
-class RecommendationsController < ApplicationController
+module Recommendations
 
   def create
     model.increment!(:recommended)
