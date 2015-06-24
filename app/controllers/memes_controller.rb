@@ -40,13 +40,17 @@ class MemesController < ApplicationController
   # PATCH/PUT /memes/1
   # PATCH/PUT /memes/1.json
   def update
-    respond_to do |format|
+    if params[:recommend]
+      @meme.increment!(:recommended)
+      redirect_to @meme, notice: 'Thanks for the recommendation.'
+    elsif params[:unrecommend]
+      @meme.increment!(:recommended, -1)
+      redirect_to @meme, notice: 'Sorry you did not enjoy that one.'
+    else
       if @meme.update(meme_params)
-        format.html { redirect_to @meme, notice: 'Meme was successfully updated.' }
-        format.json { render :show, status: :ok, location: @meme }
+        redirect_to @meme, notice: 'Meme was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @meme.errors, status: :unprocessable_entity }
+        render :edit
       end
     end
   end
@@ -69,6 +73,6 @@ class MemesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meme_params
-      params.require(:meme).permit(:uri, :recommended)
+      params.require(:meme).permit(:uri, :recommend, :unrecommend)
     end
 end

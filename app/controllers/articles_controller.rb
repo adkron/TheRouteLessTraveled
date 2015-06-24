@@ -40,13 +40,17 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-    respond_to do |format|
+    if params[:recommend]
+      @article.increment!(:recommended)
+      redirect_to @article, notice: 'Thanks for the recommendation.'
+    elsif params[:unrecommend]
+      @article.increment!(:recommended, -1)
+      redirect_to @article, notice: 'Sorry you did not enjoy that one.'
+    else
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
+        redirect_to @article, notice: 'Article was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        render :edit
       end
     end
   end
@@ -69,6 +73,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:body, :author, :recommended)
+      params.require(:article).permit(:body, :author, :recommend, :unrecommend)
     end
 end
