@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :recommend, :unrecommend]
 
   # GET /articles
   # GET /articles.json
@@ -37,21 +37,21 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /articles/1
-  # PATCH/PUT /articles/1.json
+  def recommend
+    @article.increment!(:recommended)
+    redirect_to @article, notice: 'Thanks for the recommendation.'
+  end
+
+  def unrecommend
+    @article.increment!(:recommended, -1)
+    redirect_to @article, notice: 'Sorry you did not enjoy that one.'
+  end
+
   def update
-    if params[:recommend]
-      @article.increment!(:recommended)
-      redirect_to @article, notice: 'Thanks for the recommendation.'
-    elsif params[:unrecommend]
-      @article.increment!(:recommended, -1)
-      redirect_to @article, notice: 'Sorry you did not enjoy that one.'
+    if @article.update(article_params)
+      redirect_to @article, notice: 'Article was successfully updated.'
     else
-      if @article.update(article_params)
-        redirect_to @article, notice: 'Article was successfully updated.'
-      else
-        render :edit
-      end
+      render :edit
     end
   end
 

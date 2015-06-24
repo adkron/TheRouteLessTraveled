@@ -1,5 +1,5 @@
 class MemesController < ApplicationController
-  before_action :set_meme, only: [:show, :edit, :update, :destroy]
+  before_action :set_meme, only: [:show, :edit, :update, :destroy, :recommend, :unrecommend]
 
   # GET /memes
   # GET /memes.json
@@ -37,21 +37,21 @@ class MemesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /memes/1
-  # PATCH/PUT /memes/1.json
+  def recommend
+    @meme.increment!(:recommended)
+    redirect_to @meme, notice: 'Thanks for the recommendation.'
+  end
+
+  def unrecommend
+    @meme.increment!(:recommended, -1)
+    redirect_to @meme, notice: 'Sorry you did not enjoy that one.'
+  end
+
   def update
-    if params[:recommend]
-      @meme.increment!(:recommended)
-      redirect_to @meme, notice: 'Thanks for the recommendation.'
-    elsif params[:unrecommend]
-      @meme.increment!(:recommended, -1)
-      redirect_to @meme, notice: 'Sorry you did not enjoy that one.'
+    if @meme.update(meme_params)
+      redirect_to @meme, notice: 'Meme was successfully updated.'
     else
-      if @meme.update(meme_params)
-        redirect_to @meme, notice: 'Meme was successfully updated.'
-      else
-        render :edit
-      end
+      render :edit
     end
   end
 

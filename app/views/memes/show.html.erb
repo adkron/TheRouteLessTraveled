@@ -7,8 +7,8 @@
 <p>
   <strong>Recommended:</strong>
   <%= @meme.recommended %>
-  <%= button_to 'Recommend', meme_path(id: @meme, recommend: true), method: :put  %>
-  <%= button_to 'Unrecommend', meme_path(id: @meme, unrecommend: true), method: :put %>
+  <%= button_to 'Recommend', meme_recommend_path(@meme), method: :put  %>
+  <%= button_to 'Unrecommend', meme_unrecommend_path(@meme), method: :delete %>
 </p>
 
 
