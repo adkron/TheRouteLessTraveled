@@ -1,3 +1,5 @@
+(https://www.youtube.com/watch?v=w98zcdFAr5A) [Video form Remote Ruby Conf]
+
 Images attributions
 
 * Evolution
